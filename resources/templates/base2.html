@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheet/mainStyle.css" />
+		<title>Intellisys Wiki</title>
+	</head>
+	<body class='noMargin'>
+		<div class="login-area">
+			<a class="login-link" href="/signup">Signup</a>
+			|
+			<a class="login-link" href="/login">Login</a>
+		</div>
+		<a href="/" class="main-title">IntellyWiki</a>
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

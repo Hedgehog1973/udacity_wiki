@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheet/mainStyle.css" />
+		<title>Intellisys Wiki</title>
+	</head>
+	<body class='noMargin'>
+		<div class="login-area">
+			{% if user %}
+				{% if full_url.find('/_edit') > 0 %}
+					<a class="login-link" href="/_history{{ url }}">History</a>
+					|
+					<a class="login-link" href="{{ url }}">View</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					{{user.username}} (<a class="login-link" href="/logout">Logout</a>)
+				{% elif full_url.find('/_history') > 0 %}
+					{{user.username}} (<a class="login-link" href="/logout">Logout</a>)
+				{% else %}
+					<a class="login-link" href="/_history{{ url }}">History</a>
+					|
+					<a class="login-link" href="/_edit{{ url }}">Edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					{{user.username}} (<a class="login-link" href="/logout">Logout</a>)
+				{% endif %}
+			{% else %}
+				<a class="login-link" href="/login">Login</a>
+				|
+				<a class="login-link" href="/signup">Signup</a>
+			{% endif %}
+  		</div>
+		<div ><a class="main-title" href="/">IntellyWiki</a></div>
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
